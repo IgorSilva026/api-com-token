@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tecnologias de Programação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <h1>Tecnologias de Programação</h1>
+
+        <section id="tela-login">
+            <h2 id="titulo-acesso">Entrar</h2>
+            <form id="form-login">
+                <label>Usuário
+                    <input type="text" id="usuario" minlength="3" autocomplete="username" required>
+                </label>
+                <label>Senha
+                    <input type="password" id="senha" minlength="6" autocomplete="current-password" required>
+                </label>
+                <button type="submit" id="btn-acesso">Entrar</button>
+            </form>
+            <p class="alternar">
+                <span id="texto-alternar">Não tem conta?</span>
+                <button type="button" id="btn-alternar" class="link">Criar usuário</button>
+            </p>
+        </section>
+
+        <section id="tela-app" hidden>
+            <div class="topo">
+                <h2>Cadastro</h2>
+                <button type="button" id="btn-sair" class="secundario">Sair</button>
+            </div>
+
+            <form id="form-tecnologia">
+                <input type="hidden" id="id">
+                <label>Nome
+                    <input type="text" id="nome" placeholder="Ex.: React" required>
+                </label>
+                <label>Base
+                    <select id="base" required>
+                        <option value="">Selecione</option>
+                        <option value="PHP">PHP</option>
+                        <option value="C#">C#</option>
+                        <option value="JS">JS</option>
+                        <option value="Python">Python</option>
+                        <option value="Java">Java</option>
+                        <option value="C++">C++</option>
+                    </select>
+                </label>
+                <label>Curva de aprendizado (meses)
+                    <input type="number" id="curva" min="1" placeholder="Ex.: 3" required>
+                </label>
+                <div class="acoes">
+                    <button type="submit" id="btn-salvar">Cadastrar</button>
+                    <button type="button" id="btn-cancelar" class="secundario" hidden>Cancelar</button>
+                </div>
+            </form>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Base</th>
+                        <th>Curva de aprendizado</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tabela-corpo"></tbody>
+            </table>
+        </section>
+
+        <p id="mensagem" role="alert"></p>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,507 @@
+:root {
+    /* Cores principais */
+    --bg: #F5F7F4;
+    --surface: #FFFFFF;
+    --surface-2: #F0F4EF;
+    --surface-hover: #E9F0E9;
+
+    /* Bordas */
+    --border: #E3EAE2;
+    --border-focus: #8EAB96;
+
+    /* Tipografia */
+    --text: #26352C;
+    --text-muted: #849187;
+    --text-light: #A3AEA5;
+
+    /* Cores de destaque */
+    --accent: #789982;
+    --accent-hover: #64856F;
+    --accent-light: #E8F0E9;
+    --accent-dark: #45634D;
+
+    /* Estados */
+    --neutral: #EEF2ED;
+    --neutral-hover: #E2E9E1;
+
+    --danger: #D97777;
+    --danger-light: #FCEEEE;
+
+    --success: #639B79;
+    --success-light: #E9F4EC;
+
+    /* Design */
+    --radius-sm: 8px;
+    --radius: 12px;
+    --radius-lg: 18px;
+    --radius-xl: 24px;
+
+    /* Sombras */
+    --shadow-sm: 0 2px 8px rgba(40, 65, 45, 0.04);
+    --shadow: 0 8px 24px rgba(40, 65, 45, 0.06);
+    --shadow-lg: 0 16px 40px rgba(40, 65, 45, 0.09);
+
+    /* Fontes */
+    --font-sans: "Inter", system-ui, -apple-system,
+        "Segoe UI", sans-serif;
+
+    --font-mono: "JetBrains Mono", monospace;
+
+    /* Animações */
+    --transition: 0.2s ease;
+}
+
+/* ==========================================
+   RESET
+========================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    font-family: var(--font-sans);
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+/* ==========================================
+   CONTEÚDO PRINCIPAL
+========================================== */
+
+main {
+    width: min(100% - 40px, 1000px);
+    margin: 3rem auto;
+}
+
+section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    box-shadow: var(--shadow-sm);
+}
+
+/* ==========================================
+   TIPOGRAFIA
+========================================== */
+
+h1,
+h2,
+h3 {
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-weight: 600;
+    letter-spacing: -0.035em;
+    line-height: 1.3;
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: clamp(1.7rem, 4vw, 2.2rem);
+}
+
+h2 {
+    font-size: 1.45rem;
+}
+
+h3 {
+    font-size: 1.15rem;
+}
+
+p {
+    color: var(--text-muted);
+}
+
+/* ==========================================
+   CABEÇALHO
+========================================== */
+
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    padding-bottom: 1.5rem;
+    margin-bottom: 2rem;
+
+    border-bottom: 1px solid var(--border);
+}
+
+.topo > * {
+    margin: 0;
+}
+
+/* ==========================================
+   FORMULÁRIOS
+========================================== */
+
+form {
+    display: grid;
+    gap: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+label {
+    display: grid;
+    gap: 0.5rem;
+
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    font-weight: 600;
+    letter-spacing: 0.015em;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    min-height: 46px;
+
+    padding: 0.75rem 1rem;
+
+    background: var(--surface);
+    color: var(--text);
+
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+
+    font-family: var(--font-sans);
+    font-size: 0.92rem;
+
+    transition:
+        border-color var(--transition),
+        box-shadow var(--transition),
+        background var(--transition);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--text-light);
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: #C5D5C7;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: none;
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 4px rgba(120, 153, 130, 0.13);
+}
+
+textarea {
+    resize: vertical;
+    min-height: 110px;
+}
+
+select {
+    cursor: pointer;
+}
+
+/* ==========================================
+   BOTÕES
+========================================== */
+
+button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    min-height: 42px;
+    padding: 0.7rem 1.25rem;
+
+    background: var(--accent);
+    color: #FFFFFF;
+
+    border: 1px solid transparent;
+    border-radius: var(--radius);
+
+    font-family: var(--font-sans);
+    font-size: 0.88rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background var(--transition),
+        transform var(--transition),
+        box-shadow var(--transition);
+}
+
+button:hover {
+    background: var(--accent-hover);
+    box-shadow: var(--shadow-sm);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+button:focus-visible {
+    outline: 3px solid rgba(120, 153, 130, 0.3);
+    outline-offset: 3px;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Botão secundário */
+
+button.secundario {
+    background: var(--neutral);
+    border-color: var(--border);
+    color: var(--text);
+}
+
+button.secundario:hover {
+    background: var(--neutral-hover);
+}
+
+/* Botão de perigo */
+
+button.perigo {
+    background: var(--danger-light);
+    border-color: transparent;
+    color: var(--danger);
+}
+
+button.perigo:hover {
+    background: var(--danger);
+    color: #FFFFFF;
+}
+
+/* Botão estilo link */
+
+button.link {
+    min-height: auto;
+    padding: 0;
+
+    background: transparent;
+    border: none;
+
+    color: var(--accent-dark);
+    font-family: var(--font-sans);
+    font-size: inherit;
+
+    text-decoration: none;
+}
+
+button.link:hover {
+    background: transparent;
+    color: var(--accent-hover);
+    text-decoration: underline;
+    box-shadow: none;
+}
+
+/* Grupo de ações */
+
+.acoes {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+/* ==========================================
+   TABELAS
+========================================== */
+
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+
+    font-size: 0.9rem;
+}
+
+th,
+td {
+    padding: 1rem 0.85rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+}
+
+th {
+    background: var(--surface-2);
+
+    color: var(--text-muted);
+
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.045em;
+    text-transform: uppercase;
+}
+
+th:first-child {
+    border-radius: var(--radius-sm) 0 0 0;
+}
+
+th:last-child {
+    border-radius: 0 var(--radius-sm) 0 0;
+}
+
+tbody tr {
+    transition: background var(--transition);
+}
+
+tbody tr:hover {
+    background: var(--surface-hover);
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+td:last-child {
+    white-space: nowrap;
+}
+
+/* ==========================================
+   FEEDBACK E NOTIFICAÇÕES
+========================================== */
+
+#mensagem {
+    margin-top: 1.25rem;
+    padding: 0.9rem 1rem;
+
+    border-radius: var(--radius);
+
+    font-size: 0.88rem;
+    font-weight: 600;
+}
+
+#mensagem.erro {
+    color: #B95757;
+    background: var(--danger-light);
+}
+
+#mensagem.sucesso {
+    color: #477D5D;
+    background: var(--success-light);
+}
+
+/* ==========================================
+   ALTERNAR / INFORMAÇÕES SECUNDÁRIAS
+========================================== */
+
+.alternar {
+    margin-top: 1.25rem;
+
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* ==========================================
+   RESPONSIVIDADE
+========================================== */
+
+@media (max-width: 768px) {
+
+    main {
+        width: min(100% - 24px, 1000px);
+        margin: 1.5rem auto;
+    }
+
+    section {
+        padding: 1.25rem;
+        border-radius: var(--radius);
+    }
+
+    .topo {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+
+    .acoes {
+        width: 100%;
+    }
+
+    .acoes button {
+        flex: 1;
+    }
+
+    table {
+        font-size: 0.82rem;
+    }
+
+    th,
+    td {
+        padding: 0.8rem 0.6rem;
+    }
+}
+
+@media (max-width: 480px) {
+
+    main {
+        width: calc(100% - 20px);
+        margin: 1rem auto;
+    }
+
+    section {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    input,
+    select,
+    textarea {
+        font-size: 16px;
+    }
+
+    .acoes {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .acoes button {
+        width: 100%;
+    }
+
+}
+
+/* ==========================================
+   ACESSIBILIDADE E MOVIMENTO
+========================================== */
+
+:focus-visible {
+    outline-color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
